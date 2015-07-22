@@ -266,7 +266,7 @@ func (options *Html) BlockCode(out *bytes.Buffer, text []byte, lang string) {
 			continue
 		}
 		if count == 0 {
-			out.WriteString("<pre><code class=\"language-")
+			out.WriteString("<pre><code class=\"lineums prettyprint language-")
 		} else {
 			out.WriteByte(' ')
 		}
@@ -275,7 +275,7 @@ func (options *Html) BlockCode(out *bytes.Buffer, text []byte, lang string) {
 	}
 
 	if count == 0 {
-		out.WriteString("<pre><code>")
+		out.WriteString(`<pre><code class="linenums prettyprint ">`)
 	} else {
 		out.WriteString("\">")
 	}
@@ -482,7 +482,7 @@ func (options *Html) AutoLink(out *bytes.Buffer, link []byte, kind int) {
 }
 
 func (options *Html) CodeSpan(out *bytes.Buffer, text []byte) {
-	out.WriteString("<code>")
+	out.WriteString(`<code class="prettyprint ">`)
 	attrEscape(out, text)
 	out.WriteString("</code>")
 }
