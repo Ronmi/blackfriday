@@ -266,7 +266,7 @@ func (options *Html) BlockCode(out *bytes.Buffer, text []byte, lang string) {
 			continue
 		}
 		if count == 0 {
-			out.WriteString("<pre><code class=\"lineums prettyprint language-")
+			out.WriteString(`<pre class="linenums prettyprint"><code class="language-`)
 		} else {
 			out.WriteByte(' ')
 		}
@@ -275,7 +275,7 @@ func (options *Html) BlockCode(out *bytes.Buffer, text []byte, lang string) {
 	}
 
 	if count == 0 {
-		out.WriteString(`<pre><code class="linenums prettyprint ">`)
+		out.WriteString(`<pre class="linenums prettyprint"><code>`)
 	} else {
 		out.WriteString("\">")
 	}
